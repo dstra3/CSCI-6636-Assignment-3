@@ -1,0 +1,188 @@
+:root{
+    --body-background: #243119;
+
+    --section-background: #629460;
+    --section-padding: 10px;
+    --section-border: solid 5px black;
+
+    --subsection-background: #c9f2c7;
+    --subsection-padding: 5px;
+    --subsection-border: solid 4px black;
+
+    --img-border: solid 3px black;
+    --img-radius: 3%;
+
+    --header-background: #aceca1;
+
+    --standard-margin: 10px;
+    /*
+    Color combination from 
+    https://coolors.co/c9f2c7-aceca1-96be8c-629460-243119
+    */
+}
+body{
+    background-color: var(--body-background);
+}
+
+nav{
+    display: flex;
+    border: var(--section-border);
+    background-color: var(--section-background);
+    padding: var(--section-padding);
+    margin: var(--standard-margin);
+    text-align: center;
+}
+a{
+    display: block;
+    margin: auto;
+    background-color: var(--subsection-background);
+    border: var(--subsection-border);
+    padding: var(--subsection-padding);
+}
+
+h1{
+    background-color: var(--header-background);
+    border: var(--subsection-border);
+    padding: var(--subsection-padding);
+    margin: var(--standard-margin);
+    text-align: center;
+}
+
+main{
+    background-color: var(--section-background);
+    border: var(--section-border);
+    padding: var(--section-padding);
+    margin: var(--standard-margin);
+    
+}
+img{
+    border: var(--img-border);
+    border-radius: var(--img-radius);
+    max-width: 33vw;
+    max-height: 33vh;
+}
+section{
+    background-color: var(--subsection-background);
+    border: var(--subsection-border);
+    padding: var(--subsection-padding);
+    margin: var(--standard-margin);
+}
+
+.imageNextToText{
+    width: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-rows: .3fr 1fr;
+    grid-template-areas: 
+    "image header"
+    "image paragraph";
+}
+.imageNextToText p{
+    grid-area: paragraph;
+}
+.imageNextToText h2{
+    grid-area: header;
+}
+.imageNextToText img{
+    grid-area: image;
+    max-width: 50vh;
+}
+
+.textAboveImage{
+    padding: 10px;
+    display: grid;
+    text-align: center;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows:  .2fr .5fr 1fr;
+    grid-template-areas: 
+    "header"
+    "image"
+    "paragraph";
+}
+.textAboveImage p{
+    grid-area: paragraph;
+    
+}
+.textAboveImage h3{
+    grid-area: header;
+    
+}
+.textAboveImage img{
+    grid-area: image;
+    max-width: 30vh;
+}
+
+#experience{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:  .2fr 1fr;
+    grid-template-areas: 
+    "header header header"
+    "exp1 exp2 exp3";
+}
+#experience img{
+    width: 20vw;
+}
+#experience h1{
+    grid-area: header;
+}
+#experience #experience1{
+    grid-area: exp1;
+}
+#experience #experience2{
+    grid-area: exp2;
+}
+#experience #experience3{
+    grid-area: exp3;
+}
+
+#education .imageNextToText{
+    grid-template-columns: 1fr .5fr;
+    grid-template-rows: .3fr 1fr;
+    grid-template-areas: 
+    "header image"
+    "paragraph image";
+}
+
+footer{
+    background-color: var(--section-background);
+    border: var(--section-border);
+    display: flex;
+    margin: var(--standard-margin);
+    padding: var(--section-padding)
+}
+footer img{
+    max-width: 3vh;
+    max-height: 3vh;
+}
+
+@media only screen and (max-width:500px){
+    nav{
+        display:none;
+    }
+    footer{
+        display:block;
+    }
+
+    .imageNextToText{
+        width: auto;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows:  .2fr 1fr 1fr;
+        grid-template-areas: 
+        "header"
+        "image"
+        "paragraph";
+    }
+    #education .imageNextToText{
+        grid-template-columns: 1fr;
+        grid-template-rows:  .2fr 1fr 1fr;
+        grid-template-areas: 
+        "header"
+        "image"
+        "paragraph";
+    }
+}
